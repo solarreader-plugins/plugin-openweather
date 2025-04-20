@@ -1,0 +1,104 @@
+[
+  {
+    "columns": [
+      {
+        "columnName": "Himmel",
+        "columnType": "STRING"
+      },
+      {
+        "columnName": "Datum",
+        "columnType": "STRING"
+      },
+      {
+        "columnName": "Sonnenaufgang",
+        "columnType": "STRING"
+      },
+      {
+        "columnName": "Temperatur",
+        "columnType": "NUMBER"
+      },
+      {
+        "columnName": "Windrichtung",
+        "columnType": "NUMBER"
+      },
+      {
+        "columnName": "Ort",
+        "columnType": "STRING"
+      },
+      {
+        "columnName": "Regenmenge",
+        "columnType": "NUMBER"
+      },
+      {
+        "columnName": "Schnee",
+        "columnType": "NUMBER"
+      },
+      {
+        "columnName": "Sonnenuntergang",
+        "columnType": "STRING"
+      },
+      {
+        "columnName": "Luftfeuchte",
+        "columnType": "NUMBER"
+      },
+      {
+        "columnName": "Wind",
+        "columnType": "NUMBER"
+      },
+      {
+        "columnName": "Luftdruck",
+        "columnType": "NUMBER"
+      },
+      {
+        "columnName": "Wolkendichte",
+        "columnType": "NUMBER"
+      }
+    ],
+    "rows": [
+      {
+        "cells": [
+          {
+            "expression": "weather_0_description"
+          },
+          {
+            "expression": "DT_DATE_FORMAT(CURRENT, \"dd.MM.yyyy HH:mm\")"
+          },
+          {
+            "expression": "DT_DATE_FORMAT(sys_sunrise, \"HH:mm\")"
+          },
+          {
+            "expression": "main_temp"
+          },
+          {
+            "expression": "wind_deg"
+          },
+          {
+            "expression": "name"
+          },
+          {
+            "expression": "IF(rain_3h > 0, rain_3h, rain_1h)"
+          },
+          {
+            "expression": "IF(snow_3h > 0, snow_3h, snow_1h)"
+          },
+          {
+            "expression": "DT_DATE_FORMAT(sys_sunset, \"HH:mm\")"
+          },
+          {
+            "expression": "main_humidity"
+          },
+          {
+            "expression": "wind_speed"
+          },
+          {
+            "expression": "main_pressure"
+          },
+          {
+            "expression": "clouds_all"
+          }
+        ]
+      }
+    ],
+    "tableName": "aktuellesWetter"
+  }
+]

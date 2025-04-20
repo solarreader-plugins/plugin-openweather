@@ -1,0 +1,241 @@
+[
+  {
+    "providerPropertyType": "COMMAND",
+    "command": "http://{provider_host}/data/2.5/weather?id={location}&APPID={appid}&lang=de&units=metric",
+    "propertyFieldList": [
+      {
+        "fieldName": "coord_lon",
+        "fieldType": "NUMBER",
+        "expression": "value",
+        "index": "coord_lon",
+        "note": "City geo location, longitude"
+      },
+      {
+        "fieldName": "coord_lat",
+        "fieldType": "NUMBER",
+        "expression": "value",
+        "index": "coord_lat",
+        "note": "City geo location, latitude"
+      },
+      {
+        "fieldName": "weather_0_id",
+        "fieldType": "NUMBER",
+        "expression": "value",
+        "index": "weather_0_id",
+        "note": "Weather condition id"
+      },
+      {
+        "fieldName": "weather_0_main",
+        "fieldType": "STRING",
+        "expression": "value",
+        "index": "weather_0_main",
+        "note": "Group of weather parameters (Rain, Snow, Extreme etc.)"
+      },
+      {
+        "fieldName": "weather_0_description",
+        "fieldType": "STRING",
+        "expression": "value",
+        "index": "weather_0_description",
+        "note": "Weather condition within the group"
+      },
+      {
+        "fieldName": "weather_0_icon",
+        "fieldType": "STRING",
+        "expression": "value",
+        "index": "weather_0_icon",
+        "note": "Weather icon id"
+      },
+      {
+        "fieldName": "main_temp",
+        "fieldType": "NUMBER",
+        "expression": "value",
+        "index": "main_temp",
+        "note": "Temperature",
+        "unit": "Celsius"
+      },
+      {
+        "fieldName": "main_feels_like",
+        "fieldType": "NUMBER",
+        "expression": "value",
+        "index": "main_feels_like",
+        "note": "This temperature parameter accounts for the human perception of weather",
+        "unit": "Celsius"
+      },
+      {
+        "fieldName": "main_pressure",
+        "fieldType": "NUMBER",
+        "expression": "value",
+        "index": "main_pressure",
+        "note": "Atmospheric pressure (on the sea level, if there is no sea_level or grnd_level data)",
+        "unit": "hPa"
+      },
+      {
+        "fieldName": "main_humidity",
+        "fieldType": "NUMBER",
+        "expression": "value",
+        "index": "main_humidity",
+        "note": "Humidity",
+        "unit": "%"
+      },
+      {
+        "fieldName": "main_temp_min",
+        "fieldType": "NUMBER",
+        "expression": "value",
+        "index": "main_temp_min",
+        "note": "Minimum temperature at the moment. This is minimal currently observed temperature (within large megalopolises and urban areas)",
+        "unit": "Celsius"
+      },
+      {
+        "fieldName": "main_temp_max",
+        "fieldType": "NUMBER",
+        "expression": "value",
+        "index": "main_temp_max",
+        "note": "Maximum temperature at the moment. This is maximal currently observed temperature (within large megalopolises and urban areas)",
+        "unit": "Celsius"
+      },
+      {
+        "fieldName": "main_sealevel",
+        "fieldType": "NUMBER",
+        "expression": "value",
+        "index": "main_sea_level",
+        "note": "Atmospheric pressure on the sea level",
+        "unit": "hPa"
+      },
+      {
+        "fieldName": "main_grnd_level",
+        "fieldType": "NUMBER",
+        "expression": "value",
+        "index": "main_grnd_level",
+        "note": "Atmospheric pressure on the ground level",
+        "unit": "hPa"
+      },
+      {
+        "fieldName": "visibility",
+        "fieldType": "NUMBER",
+        "expression": "value",
+        "index": "visibility",
+        "note": "The maximum value of the visibility is 10km",
+        "unit": "meter"
+      },
+      {
+        "fieldName": "wind_speed",
+        "fieldType": "NUMBER",
+        "expression": "IF(value == NULL, 0, value)",
+        "index": "wind_speed",
+        "note": "Wind speed",
+        "unit": "meter/sec"
+      },
+      {
+        "fieldName": "wind_deg",
+        "fieldType": "NUMBER",
+        "expression": "IF(value == NULL, 0, value)",
+        "index": "wind_deg",
+        "note": "Wind direction (meteorological)",
+        "unit": "degrees"
+      },
+      {
+        "fieldName": "wind_gust",
+        "fieldType": "NUMBER",
+        "expression": "IF(value == NULL, 0, value)",
+        "index": "wind_gust",
+        "note": "Wind gust",
+        "unit": "meter/sec"
+      },
+      {
+        "fieldName": "clouds_all",
+        "fieldType": "NUMBER",
+        "expression": "IF(value == NULL, 0, value)",
+        "index": "clouds_all",
+        "note": "Cloudiness",
+        "unit": "%"
+      },
+      {
+        "fieldName": "rain_1h",
+        "fieldType": "NUMBER",
+        "expression": "IF(value == NULL, 0, value)",
+        "index": "rain_1h",
+        "note": "Rain volume for the last 1 hour",
+        "unit": "mm"
+      },
+      {
+        "fieldName": "rain_3h",
+        "fieldType": "NUMBER",
+        "expression": "IF(value == NULL, 0, value)",
+        "index": "rain_3h",
+        "note": "Rain volume for the last 3 hour",
+        "unit": "mm"
+      },
+      {
+        "fieldName": "snow_1h",
+        "fieldType": "NUMBER",
+        "expression": "IF(value == NULL, 0, value)",
+        "index": "snow_1h",
+        "note": "Snow volume for the last 1 hour",
+        "unit": "mm"
+      },
+      {
+        "fieldName": "snow_3h",
+        "fieldType": "NUMBER",
+        "expression": "IF(value == NULL, 0, value)",
+        "index": "snow_3h",
+        "note": "Snow volume for the last 3 hour",
+        "unit": "mm"
+      },
+      {
+        "fieldName": "dt",
+        "fieldType": "TIMESTAMP",
+        "expression": "value",
+        "index": "dt",
+        "note": "Time of data calculation",
+        "unit": "UTC"
+      },
+      {
+        "fieldName": "sys_country",
+        "fieldType": "STRING",
+        "expression": "value",
+        "index": "sys_country",
+        "unit": "country code (GB, DE etc)"
+      },
+      {
+        "fieldName": "sys_sunrise",
+        "fieldType": "TIMESTAMP",
+        "expression": "value",
+        "index": "sys_sunrise",
+        "note": "sunrise time, unix, UTC",
+        "unit": "UTC"
+      },
+      {
+        "fieldName": "sys_sunset",
+        "fieldType": "TIMESTAMP",
+        "expression": "value",
+        "index": "sys_sunset",
+        "note": "sunset time, unix, UTC",
+        "unit": "UTC"
+      },
+      {
+        "fieldName": "timezone",
+        "fieldType": "NUMBER",
+        "expression": "value",
+        "index": "timezone",
+        "note": "Timezone shift in seconds from UTC",
+        "unit": "seconds"
+      },
+      {
+        "fieldName": "id",
+        "fieldType": "NUMBER",
+        "expression": "value",
+        "index": "id",
+        "note": "City ID"
+      },
+      {
+        "fieldName": "name",
+        "fieldType": "STRING",
+        "expression": "value",
+        "index": "name",
+        "note": "city name"
+      }
+    ],
+    "name": "OpenWeather",
+    "key": 221515755330900
+  }
+]
