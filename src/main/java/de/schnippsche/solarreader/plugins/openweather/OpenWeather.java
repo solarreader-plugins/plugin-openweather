@@ -25,30 +25,19 @@ import de.schnippsche.solarreader.backend.calculator.MapCalculator;
 import de.schnippsche.solarreader.backend.connection.general.ConnectionFactory;
 import de.schnippsche.solarreader.backend.connection.network.HttpConnection;
 import de.schnippsche.solarreader.backend.connection.network.HttpConnectionFactory;
-import de.schnippsche.solarreader.backend.protocol.KnownProtocol;
 import de.schnippsche.solarreader.backend.provider.AbstractHttpProvider;
 import de.schnippsche.solarreader.backend.provider.CommandProviderProperty;
 import de.schnippsche.solarreader.backend.provider.ProviderProperty;
-import de.schnippsche.solarreader.backend.provider.SupportedInterface;
 import de.schnippsche.solarreader.backend.table.Table;
 import de.schnippsche.solarreader.backend.util.JsonTools;
 import de.schnippsche.solarreader.backend.util.Setting;
 import de.schnippsche.solarreader.backend.util.StringConverter;
 import de.schnippsche.solarreader.database.Activity;
-import de.schnippsche.solarreader.frontend.ui.HtmlInputType;
-import de.schnippsche.solarreader.frontend.ui.HtmlWidth;
-import de.schnippsche.solarreader.frontend.ui.UIInputElementBuilder;
-import de.schnippsche.solarreader.frontend.ui.UIList;
-import de.schnippsche.solarreader.frontend.ui.UITextElementBuilder;
-import de.schnippsche.solarreader.plugin.PluginMetadata;
+import de.schnippsche.solarreader.frontend.ui.*;
 import java.io.IOException;
 import java.net.URL;
 import java.time.LocalTime;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
-import java.util.ResourceBundle;
+import java.util.*;
 import java.util.concurrent.TimeUnit;
 import org.tinylog.Logger;
 
@@ -62,15 +51,6 @@ import org.tinylog.Logger;
  * API keys, endpoints, and query parameters to retrieve weather information for specified
  * locations.
  */
-@PluginMetadata(
-    name = "OpenWeather",
-    version = "1.0.1",
-    author = "Stefan Töngi",
-    url = "https://github.com/solarreader-plugins/plugin-OpenWeather",
-    svgImage = "openweather.svg",
-    supportedInterfaces = {SupportedInterface.URL},
-    usedProtocol = KnownProtocol.HTTP,
-    supports = "OpenWeather V2.5")
 public class OpenWeather extends AbstractHttpProvider {
   private static final String LOCATION = "location";
   private static final String APPID = "appid";
