@@ -20,11 +20,9 @@
  * THE SOFTWARE.
  */
 package de.schnippsche.solarreader.test;
-
-import de.schnippsche.solarreader.backend.connection.network.HttpConnection;
 import java.io.IOException;
+import java.net.URI;
 import java.net.URISyntaxException;
-import java.net.URL;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.nio.file.Files;
@@ -33,50 +31,55 @@ import java.nio.file.Paths;
 import java.util.Map;
 import java.util.Objects;
 
-public class OpenWeatherHttpConnection implements HttpConnection {
-
-  @Override
-  public void test(URL url, String validMediaType) {}
-
-  @Override
-  public HttpRequest buildGetRequest(URL url, Map<String, String> headers) {
-    return null;
-  }
-
-  @Override
-  public HttpRequest buildPostRequest(URL url, Map<String, String> headers, String body) {
-    return null;
-  }
-
-  @Override
-  public HttpResponse<String> get(URL url) {
-    return null;
-  }
-
-  @Override
-  public String getAsString(URL url) {
-    if (url.toString().startsWith("http://api.openweathermap.org/data/2.5/weather")) {
-      try {
-        Path path =
-            Paths.get(
-                Objects.requireNonNull(
-                        getClass().getClassLoader().getResource("openweather_response.json"))
-                    .toURI());
-        return Files.readString(path);
-      } catch (URISyntaxException | IOException e) {
-        throw new RuntimeException(e);
-      }
+import de.solarreader.core.connection.host.HostConnection;
+public class OpenWeatherHttpConnection implements HostConnection
+{
+    @Override
+    public void test(URI url, String validMediaType)
+    {
     }
-    return null;
-  }
-
-  @Override
-  public HttpResponse<String> post(URL url, Map<String, String> formData, String body) {
-    return null;
-  }
-
-  @Override
-  public HttpResponse<String> sendRequest(HttpRequest request) {
-    return null;
-  }
+    @Override
+    public HttpRequest buildGetRequest(URI url, Map<String, String> headers)
+    {
+        return null;
+    }
+    @Override
+    public HttpRequest buildPostRequest(URI url, Map<String, String> headers, String body)
+    {
+        return null;
+    }
+    @Override
+    public HttpResponse<String> get(URI url)
+    {
+        return null;
+    }
+    @Override
+    public String getAsString(URI url)
+    {
+        if (url.toString().startsWith("http://api.openweathermap.org/data/2.5/weather")) {
+            try {
+                Path path = Paths.get(
+                    Objects.requireNonNull(getClass().getClassLoader().getResource("openweather_response.json"))
+                        .toURI());
+                return Files.readString(path);
+            } catch (URISyntaxException | IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
+        return null;
+    }
+    @Override
+    public HttpResponse<String> post(URI url, Map<String, String> formData, String body)
+    {
+        return null;
+    }
+    @Override
+    public HttpResponse<String> sendRequest(HttpRequest request)
+    {
+        return null;
+    }
+    @Override
+    public void close() throws IOException
+    {
+    }
 }

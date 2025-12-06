@@ -1,0 +1,255 @@
+- type: "COMMAND"
+  name: "OpenWeather"
+  activity:
+    poll-interval: "1h"
+    active-time:
+      from:
+        base_type: "TIME"
+        offset_duration: "0s"
+        local_time: "01:00:00"
+      to:
+        base_type: "TIME"
+        offset_duration: "0s"
+        local_time: "18:00:00"
+  data-layout:
+    values:
+    - format:
+        type: "text-number"
+        charset: "ISO-8859-1"
+      metadata:
+        note: "City geo location, longitude"
+      index: "coord_lon"
+      variable_name: "coord_lon"
+    - format:
+        type: "text-number"
+        charset: "ISO-8859-1"
+      metadata:
+        note: "City geo location, latitude"
+      index: "coord_lat"
+      variable_name: "coord_lat"
+    - format:
+        type: "text-number"
+        charset: "ISO-8859-1"
+      metadata:
+        note: "Weather condition id"
+      index: "weather_0_id"
+      variable_name: "weather_0_id"
+    - format:
+        type: "text-string"
+        charset: "ISO-8859-1"
+      metadata:
+        note: "Group of weather parameters (Rain, Snow, Extreme etc.)"
+      index: "weather_0_main"
+      variable_name: "weather_0_main"
+    - format:
+        type: "text-string"
+        charset: "ISO-8859-1"
+      metadata:
+        note: "Weather condition within the group"
+      index: "weather_0_description"
+      variable_name: "weather_0_description"
+    - format:
+        type: "text-string"
+        charset: "ISO-8859-1"
+      metadata:
+        note: "Weather icon id"
+      index: "weather_0_icon"
+      variable_name: "weather_0_icon"
+    - format:
+        type: "text-number"
+        charset: "ISO-8859-1"
+      metadata:
+        note: "Temperature"
+        unit: "Celsius"
+      index: "main_temp"
+      variable_name: "main_temp"
+    - format:
+        type: "text-number"
+        charset: "ISO-8859-1"
+      metadata:
+        note: "This temperature parameter accounts for the human perception of weather"
+        unit: "Celsius"
+      index: "main_feels_like"
+      variable_name: "main_feels_like"
+    - format:
+        type: "text-number"
+        charset: "ISO-8859-1"
+      metadata:
+        note: "Atmospheric pressure (on the sea level, if there is no sea_level or grnd_level data)"
+        unit: "hPa"
+      index: "main_pressure"
+      variable_name: "main_pressure"
+    - format:
+        type: "text-number"
+        charset: "ISO-8859-1"
+      metadata:
+        note: "Humidity"
+        unit: "%"
+      index: "main_humidity"
+      variable_name: "main_humidity"
+    - format:
+        type: "text-number"
+        charset: "ISO-8859-1"
+      metadata:
+        note: "Minimum temperature at the moment. This is minimal currently observed temperature (within large megalopolises and urban areas)"
+        unit: "Celsius"
+      index: "main_temp_min"
+      variable_name: "main_temp_min"
+    - format:
+        type: "text-number"
+        charset: "ISO-8859-1"
+      metadata:
+        note: "Maximum temperature at the moment. This is maximal currently observed temperature (within large megalopolises and urban areas)"
+        unit: "Celsius"
+      index: "main_temp_max"
+      variable_name: "main_temp_max"
+    - format:
+        type: "text-number"
+        charset: "ISO-8859-1"
+      metadata:
+        note: "Atmospheric pressure on the sea level"
+        unit: "hPa"
+      index: "main_sea_level"
+      variable_name: "main_sealevel"
+    - format:
+        type: "text-number"
+        charset: "ISO-8859-1"
+      metadata:
+        note: "Atmospheric pressure on the ground level"
+        unit: "hPa"
+      index: "main_grnd_level"
+      variable_name: "main_grnd_level"
+    - format:
+        type: "text-number"
+        charset: "ISO-8859-1"
+      metadata:
+        note: "The maximum value of the visibility is 10km"
+        unit: "meter"
+      index: "visibility"
+      variable_name: "visibility"
+    - format:
+        type: "text-number"
+        charset: "ISO-8859-1"
+      metadata:
+        expression: "IF(value == NULL, 0, value)"
+        note: "Wind speed"
+        unit: "meter/sec"
+      index: "wind_speed"
+      variable_name: "wind_speed"
+    - format:
+        type: "text-number"
+        charset: "ISO-8859-1"
+      metadata:
+        expression: "IF(value == NULL, 0, value)"
+        note: "Wind direction (meteorological)"
+        unit: "degrees"
+      index: "wind_deg"
+      variable_name: "wind_deg"
+    - format:
+        type: "text-number"
+        charset: "ISO-8859-1"
+      metadata:
+        expression: "IF(value == NULL, 0, value)"
+        note: "Wind gust"
+        unit: "meter/sec"
+      index: "wind_gust"
+      variable_name: "wind_gust"
+    - format:
+        type: "text-number"
+        charset: "ISO-8859-1"
+      metadata:
+        expression: "IF(value == NULL, 0, value)"
+        note: "Cloudiness"
+        unit: "%"
+      index: "clouds_all"
+      variable_name: "clouds_all"
+    - format:
+        type: "text-number"
+        charset: "ISO-8859-1"
+      metadata:
+        expression: "IF(value == NULL, 0, value)"
+        note: "Rain volume for the last 1 hour"
+        unit: "mm"
+      index: "rain_1h"
+      variable_name: "rain_1h"
+    - format:
+        type: "text-number"
+        charset: "ISO-8859-1"
+      metadata:
+        expression: "IF(value == NULL, 0, value)"
+        note: "Rain volume for the last 3 hour"
+        unit: "mm"
+      index: "rain_3h"
+      variable_name: "rain_3h"
+    - format:
+        type: "text-number"
+        charset: "ISO-8859-1"
+      metadata:
+        expression: "IF(value == NULL, 0, value)"
+        note: "Snow volume for the last 1 hour"
+        unit: "mm"
+      index: "snow_1h"
+      variable_name: "snow_1h"
+    - format:
+        type: "text-number"
+        charset: "ISO-8859-1"
+      metadata:
+        expression: "IF(value == NULL, 0, value)"
+        note: "Snow volume for the last 3 hour"
+        unit: "mm"
+      index: "snow_3h"
+      variable_name: "snow_3h"
+    - format:
+        type: "text-timestamp"
+        time_unit: "milliseconds"
+      metadata:
+        note: "Time of data calculation"
+        unit: "UTC"
+      index: "dt"
+      variable_name: "dt"
+    - format:
+        type: "text-string"
+        charset: "ISO-8859-1"
+      metadata:
+        unit: "country code (GB, DE etc)"
+      index: "sys_country"
+      variable_name: "sys_country"
+    - format:
+        type: "text-timestamp"
+        time_unit: "milliseconds"
+      metadata:
+        note: "sunrise time, unix, UTC"
+        unit: "UTC"
+      index: "sys_sunrise"
+      variable_name: "sys_sunrise"
+    - format:
+        type: "text-timestamp"
+        time_unit: "milliseconds"
+      metadata:
+        note: "sunset time, unix, UTC"
+        unit: "UTC"
+      index: "sys_sunset"
+      variable_name: "sys_sunset"
+    - format:
+        type: "text-number"
+        charset: "ISO-8859-1"
+      metadata:
+        note: "Timezone shift in seconds from UTC"
+        unit: "seconds"
+      index: "timezone"
+      variable_name: "timezone"
+    - format:
+        type: "text-number"
+        charset: "ISO-8859-1"
+      metadata:
+        note: "City ID"
+      index: "id"
+      variable_name: "id"
+    - format:
+        type: "text-string"
+        charset: "ISO-8859-1"
+      metadata:
+        note: "city name"
+      index: "name"
+      variable_name: "name"
+  command: "http://{provider_url}/data/2.5/weather?id={location}&APPID={appid}&lang=de&units=metric"
